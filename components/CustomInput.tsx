@@ -3,9 +3,9 @@ import { FormControl, FormField, FormLabel, FormMessage } from "./ui/form";
 import { Input } from "./ui/input";
 
 import { Control, FieldPath } from "react-hook-form";
-import { authformSchema } from "@/lib/utils";
+import { authFormSchema } from "@/lib/utils";
 
-const formSchema = authformSchema("sign-up");
+const formSchema = authFormSchema("sign-up");
 
 interface CustomInputProps {
   control: Control<z.infer<typeof formSchema>>;
@@ -28,6 +28,7 @@ const CustomInput = ({ control, name, label, placeholder }: CustomInputProps) =>
                 placeholder={placeholder}
                 className="input-class"
                 type={name === "password" ? "password" : "text"}
+                id={name}
                 {...field}
               />
             </FormControl>
