@@ -10,7 +10,7 @@ import {
   ProcessorTokenCreateRequestProcessorEnum,
   Products,
 } from "plaid";
-import { plaidClient } from "../plaid";
+import { plaidClient } from "@/lib/plaid";
 import { revalidatePath } from "next/cache";
 import { addFundingSource, createDwollaCustomer } from "./dwolla.actions";
 
@@ -32,8 +32,8 @@ export const signIn = async ({ email, password }: signInProps) => {
   }
 };
 
-export const signUp = async (userData: SignUpParams) => {
-  const { email, password, firstName, lastName } = userData;
+export const signUp = async ({ password, ...userData }: SignUpParams) => {
+  const { email, firstName, lastName } = userData;
 
   let newUserAccount;
 
@@ -102,17 +102,14 @@ export const logoutAccount = async () => {
 export const createLinkToken = async (user: User) => {
   try {
     const tokenParams = {
-      user: {
-        client_user_id: user.$id,
-      },
-      client_name: user.name,
+      user: { client_user_id: user.$id },
+      client_name: `${user.firstName} ${user.lastName}`,
       products: ["auth"] as Products[],
       language: "en",
-      country_codes: ["DE"] as CountryCode[],
+      country_codes: ["US"] as CountryCode[],
     };
 
     const response = await plaidClient.linkTokenCreate(tokenParams);
-
     return parseStringify({ linkToken: response.data.link_token });
   } catch (error) {
     console.log(error);
@@ -151,7 +148,7 @@ export const createBankAccount = async ({
 };
 
 // This function exchanges a public token for an access token and item ID
-const exchangePublicToken = async ({ publicToken, user }: exchangePublicTokenProps) => {
+export const exchangePublicToken = async ({ publicToken, user }: exchangePublicTokenProps) => {
   try {
     // Exchange public token for access token and item ID
     const response = await plaidClient.itemPublicTokenExchange({
