@@ -67,7 +67,7 @@ To run the project, you'll need:
       DWOLLA_SECRET=
       DWOLLA_BASE_URL=
       DWOLLA_ENV=
-  Enter the values with your actual respective account credentials, you can obtain them by signing up on Appwrite, Plaid and Dwolla
+ <br> Enter the values with your actual respective account credentials, you can obtain them by signing up on Appwrite, Plaid and Dwolla
   
   5. Run the project
     ```sh
