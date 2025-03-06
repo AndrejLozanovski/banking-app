@@ -40,8 +40,8 @@ To run the project, you'll need:
   3. Install the dependencies: <br><br>
      ```sh
      npm install
-  5. Setup environment variables
-     Create a ```.env``` file and add:
+  5. Setup environment variables: <br>
+     Create a ```.env``` file and add: <br><br>
       ```sh
       #NEXT
       NEXT_PUBLIC_SITE_URL=
@@ -70,7 +70,7 @@ To run the project, you'll need:
   Enter the values with your actual respective account credentials, you can obtain them by signing up on Appwrite, Plaid and Dwolla
   
   5. Run the project
-  ```sh
-  npm run dev
-  ```
-And open https://localhost:3000 in your browser
+    ```sh
+    npm run dev```
+    
+     And open https://localhost:3000 in your browser
