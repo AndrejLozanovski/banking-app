@@ -24,3 +24,49 @@ BankingApp is a financial SaaS platform built with NextJS that displays transact
  - **Connect Banks**: Integrates with Plaid for multiple bank account linking
  - **Fund Transfer**: Allows users to transfer funds using Dwolla to other accounts with required fields and recipient bank ID
  - **Responsive**: The application adapts seamlessly to various screen sizes and devices
+
+## Prerequisites
+To run the project, you'll need:
+  - Git
+  - Node.js
+  - npm
+
+## Installation
+  1. Clone the repository:
+     ```git clone https://github.com/AndrejLozanovski/banking-app.git .```
+  2. Open the terminal
+  3. Install the dependencies
+     ``` npm install ```
+  4. Setup environment variables
+     Create a ```.env``` file and add:
+     
+     ```
+    #NEXT
+    NEXT_PUBLIC_SITE_URL=
+
+    #APPWRITE
+    NEXT_PUBLIC_APPWRITE_ENDPOINT=
+    NEXT_PUBLIC_APPWRITE_PROJECT=
+    APPWRITE_DATABASE_ID=
+    APPWRITE_USER_COLLECTION_ID=
+    APPWRITE_BANK_COLLECTION_ID=
+    APPWRITE_TRANSACTION_COLLECTION_ID=
+    APPWRITE_SECRET=
+    
+    #PLAID
+    PLAID_CLIENT_ID=
+    PLAID_SECRET=
+    PLAID_ENV=
+    PLAID_PRODUCTS=
+    PLAID_COUNTRY_CODES=
+    
+    #DWOLLA
+    DWOLLA_KEY=
+    DWOLLA_SECRET=
+    DWOLLA_BASE_URL=
+    DWOLLA_ENV=```
+
+  Enter the values with your actual respective account credentials, you can obtain them by signing up on Appwrite, Plaid and Dwolla
+  5. Run the project
+  ```npm run dev```
+  And open https://localhost:3000 in your browser
