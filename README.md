@@ -78,4 +78,4 @@ Create a ```.env``` file and add:
 ```  
   And open https://localhost:3000 in your browser
 
-*<sub>This project was built with inspiration from Adrian Hajdin - JS Mastery</sub>*
+
