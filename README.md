@@ -16,4 +16,11 @@ BankingApp is a financial SaaS platform built with NextJS that displays transact
   <img src="https://img.shields.io/badge/ShadCN-FFFFFF?style=for-the-badge&logoColor=black" />
 </p>
 
-## Getting Started
+## Features
+ - **HomePage**: Here is displayed the general overview of users account with total balance from all connected banks, the transactions, bank cards
+ - **My Banks**: List of all connected banks with their balances and account details
+ - **Real-time Updates**: Reflects changes across all relevant pages upon connecting new bank accounts
+ - **Authentication**: Secure SSR authentication with validations and authorization
+ - **Connect Banks**: Integrates with Plaid for multiple bank account linking
+ - **Fund Transfer**: Allows users to transfer funds using Dwolla to other accounts with required fields and recipient bank ID
+ - **Responsive**: The application adapts seamlessly to various screen sizes and devices
