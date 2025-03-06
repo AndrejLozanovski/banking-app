@@ -32,15 +32,16 @@ To run the project, you'll need:
   - npm
 
 ## Installation
-**Clone the repository:** <br><br>
-     ```sh
-     git clone https://github.com/AndrejLozanovski/banking-app.git
-     cd banking-app
-     
+**Clone the repository:**
+```bash
+  git clone https://github.com/AndrejLozanovski/banking-app.git
+  cd banking-app
+```     
 **Open the terminal** <br><br>
 **Install the dependencies:** <br><br>
-    npm install
-
+```bash
+  npm install
+```
      
 **Setup environment variables:** <br>
      Create a ```.env``` file and add: <br><br>
