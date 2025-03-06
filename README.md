@@ -1,8 +1,5 @@
 ## BankingApp
 
-BankingApp is a financial SaaS platform built with NextJS that displays transactions in real-time, connects to multiple bank accounts, manages their finances and allows users to transfer money to other platform users.
-
-## Tech Stack
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
@@ -15,5 +12,7 @@ BankingApp is a financial SaaS platform built with NextJS that displays transact
   <img src="https://img.shields.io/badge/React Hook Form-EC5990?style=for-the-badge&logo=reacthookform&logoColor=white" />
   <img src="https://img.shields.io/badge/ShadCN-FFFFFF?style=for-the-badge&logoColor=black" />
 </p>
+
+BankingApp is a financial SaaS platform built with NextJS that displays transactions in real-time, connects to multiple bank accounts, manages their finances and allows users to transfer money to other platform users.
 
 ## Getting Started
