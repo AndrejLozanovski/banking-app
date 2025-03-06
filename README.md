@@ -33,13 +33,14 @@ To run the project, you'll need:
 
 ## Installation
   1. Clone the repository: <br>
-     ```git clone https://github.com/AndrejLozanovski/banking-app.git .```
+     ```shgit clone https://github.com/AndrejLozanovski/banking-app.git .```
   2. Open the terminal
   3. Install the dependencies: <br>
-     ``` npm install ```
+     ```sh npm install ```
   4. Setup environment variables
      Create a ```.env``` file and add:
-     
+      
+    ```sh
     #NEXT
     NEXT_PUBLIC_SITE_URL=
 
@@ -63,10 +64,11 @@ To run the project, you'll need:
     DWOLLA_KEY=
     DWOLLA_SECRET=
     DWOLLA_BASE_URL=
-    DWOLLA_ENV=```
+    DWOLLA_ENV=
+    ```
 
   Enter the values with your actual respective account credentials, you can obtain them by signing up on Appwrite, Plaid and Dwolla
   
   5. Run the project
-  ```npm run dev```
+  ```sh npm run dev``` <br>
   And open https://localhost:3000 in your browser
