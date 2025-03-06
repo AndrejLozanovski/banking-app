@@ -33,10 +33,12 @@ To run the project, you'll need:
 
 ## Installation
   1. Clone the repository: <br>
-     ```shgit clone https://github.com/AndrejLozanovski/banking-app.git .```
+     ```sh
+    git clone https://github.com/AndrejLozanovski/banking-app.git .
+    cd banking-app
   2. Open the terminal
   3. Install the dependencies: <br>
-     ```sh npm install ```
+     ```sh npm install```
   4. Setup environment variables
      Create a ```.env``` file and add:
       
