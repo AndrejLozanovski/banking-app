@@ -42,8 +42,8 @@ To run the project, you'll need:
   npm install
 ```
      
-**3.Setup environment variables:** <br>
-Create a ```.env``` file and add: <br><br>
+**3.Setup environment variables:** <br><br>
+Create a ```.env``` file and add:
 ```bash
   #NEXT
   NEXT_PUBLIC_SITE_URL=
