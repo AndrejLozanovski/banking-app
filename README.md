@@ -37,10 +37,10 @@ To run the project, you'll need:
      git clone https://github.com/AndrejLozanovski/banking-app.git
      cd banking-app
      
-**Open the terminal** <br>
+**Open the terminal** <br><br>
 **Install the dependencies:** <br><br>
-     ```sh
-     npm install
+    npm install
+
      
 **Setup environment variables:** <br>
      Create a ```.env``` file and add: <br><br>
