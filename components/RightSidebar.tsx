@@ -1,8 +1,53 @@
+"use client";
+import { useCallback, useEffect, useState } from "react";
+import { usePlaidLink, PlaidLinkOnSuccess, PlaidLinkOptions } from "react-plaid-link";
+import { useRouter } from "next/navigation";
+import { createLinkToken, exchangePublicToken } from "@/lib/actions/user.actions";
 import Image from "next/image";
 import Link from "next/link";
 import BankCard from "./BankCard";
+import { countTransactionCategories } from "@/lib/utils";
+import Category from "./Category";
 
 const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
+  const categories: CategoryCount[] = countTransactionCategories(transactions);
+
+  const router = useRouter();
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    const getLinkToken = async () => {
+      const data = await createLinkToken(user);
+      setToken(data?.linkToken);
+    };
+    getLinkToken();
+  }, [user]);
+
+  const onSuccess = useCallback<PlaidLinkOnSuccess>(
+    async (public_token: string) => {
+      await exchangePublicToken({
+        publicToken: public_token,
+        user,
+      });
+      router.push("/");
+    },
+    [user, router]
+  );
+
+  const config: PlaidLinkOptions = {
+    token,
+    onSuccess,
+  };
+
+  const { open, ready } = usePlaidLink(config);
+
+  const handleAddBank = (e: any) => {
+    e.preventDefault();
+    if (ready) {
+      open();
+    }
+  };
+
   return (
     <aside className="right-sidebar">
       <section className="flex flex-col pb-8">
@@ -24,10 +69,10 @@ const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
       <section className="banks">
         <div className="flex w-full justify-between">
           <h2 className="header-2">My Banks</h2>
-          <Link href="/" className="flex gap-2">
+          <div className="flex gap-2 cursor-pointer" onClick={handleAddBank}>
             <Image src="/icons/plus.svg" width={20} height={20} alt="plus" />
             <h2 className="text-14 font-semibold text-gray-600">Add Bank</h2>
-          </Link>
+          </div>
         </div>
         {banks?.length > 0 && (
           <div className="relative flex flex-1 flex-col items-center justify-center gap-5">
@@ -35,7 +80,7 @@ const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
               <BankCard
                 key={banks[0].$id}
                 account={banks[0]}
-                userName={user.name}
+                userName={`${user.firstName} ${user.lastName}`}
                 showBalance={false}
               />
             </div>
@@ -44,13 +89,23 @@ const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
                 <BankCard
                   key={banks[1].$id}
                   account={banks[1]}
-                  userName={user.name}
+                  userName={`${user.firstName} ${user.lastName}`}
                   showBalance={false}
                 />
               </div>
             )}
           </div>
         )}
+
+        <div className="mt-10 flex flex-1 flex-col gap-6">
+          <h2 className="header-2">Top Categories</h2>
+
+          <div className="space-y-5">
+            {categories.map((category, index) => (
+              <Category key={category.name} category={category} />
+            ))}
+          </div>
+        </div>
       </section>
     </aside>
   );

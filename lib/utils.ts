@@ -66,7 +66,13 @@ export function formatAmount(amount: number): string {
 export const parseStringify = (value: any) => JSON.parse(JSON.stringify(value));
 
 export const removeSpecialCharacters = (value: string) => {
-  return value.replace(/[^\w\s]/gi, "");
+  // Check if value is undefined or null
+  if (value === undefined || value === null) {
+    return ""; // Return empty string if value is undefined or null
+  }
+
+  // Use toString() to handle non-string values
+  return value.toString().replace(/[^\w\s]/gi, "");
 };
 
 interface UrlQueryParams {
@@ -121,32 +127,21 @@ export function countTransactionCategories(transactions: Transaction[]): Categor
   const categoryCounts: { [category: string]: number } = {};
   let totalCount = 0;
 
-  // Iterate over each transaction
-  transactions &&
-    transactions.forEach((transaction) => {
-      // Extract the category from the transaction
-      const category = transaction.category;
+  transactions
+    .filter((transaction) => transaction && transaction.category) // Ensure transaction is valid
+    .forEach((transaction) => {
+      const category = String(transaction.category || "Unknown"); // Ensure category is a string
 
-      // If the category exists in the categoryCounts object, increment its count
-      if (categoryCounts.hasOwnProperty(category)) {
-        categoryCounts[category]++;
-      } else {
-        // Otherwise, initialize the count to 1
-        categoryCounts[category] = 1;
-      }
-
-      // Increment total count
+      categoryCounts[category] = (categoryCounts[category] || 0) + 1;
       totalCount++;
     });
 
-  // Convert the categoryCounts object to an array of objects
   const aggregatedCategories: CategoryCount[] = Object.keys(categoryCounts).map((category) => ({
     name: category,
     count: categoryCounts[category],
     totalCount,
   }));
 
-  // Sort the aggregatedCategories array by count in descending order
   aggregatedCategories.sort((a, b) => b.count - a.count);
 
   return aggregatedCategories;
