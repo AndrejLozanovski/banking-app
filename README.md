@@ -42,36 +42,34 @@ To run the project, you'll need:
   npm install
 ```
      
-**Setup environment variables:** <br>
-     Create a ```.env``` file and add: <br><br>
-     
-      ```sh
-      
-      #NEXT
-      NEXT_PUBLIC_SITE_URL=
-
-      #APPWRITE
-      NEXT_PUBLIC_APPWRITE_ENDPOINT=
-      NEXT_PUBLIC_APPWRITE_PROJECT=
-      APPWRITE_DATABASE_ID=
-      APPWRITE_USER_COLLECTION_ID=
-      APPWRITE_BANK_COLLECTION_ID=
-      APPWRITE_TRANSACTION_COLLECTION_ID=
-      APPWRITE_SECRET=
-      
-      #PLAID
-      PLAID_CLIENT_ID=
-      PLAID_SECRET=
-      PLAID_ENV=
-      PLAID_PRODUCTS=
-      PLAID_COUNTRY_CODES=
-      
-      #DWOLLA
-      DWOLLA_KEY=
-      DWOLLA_SECRET=
-      DWOLLA_BASE_URL=
-      DWOLLA_ENV=
-
+**3.Setup environment variables:** <br>
+Create a ```.env``` file and add: <br><br>
+```bash
+  #NEXT
+  NEXT_PUBLIC_SITE_URL=
+  
+  #APPWRITE
+  NEXT_PUBLIC_APPWRITE_ENDPOINT=
+  NEXT_PUBLIC_APPWRITE_PROJECT=
+  APPWRITE_DATABASE_ID=
+  APPWRITE_USER_COLLECTION_ID=
+  APPWRITE_BANK_COLLECTION_ID=
+  APPWRITE_TRANSACTION_COLLECTION_ID=
+  APPWRITE_SECRET=
+  
+  #PLAID
+  PLAID_CLIENT_ID=
+  PLAID_SECRET=
+  PLAID_ENV=
+  PLAID_PRODUCTS=
+  PLAID_COUNTRY_CODES=
+  
+  #DWOLLA
+  DWOLLA_KEY=
+  DWOLLA_SECRET=
+  DWOLLA_BASE_URL=
+  DWOLLA_ENV=
+```
   Enter the values with your actual respective account credentials, you can obtain them by signing up on Appwrite, Plaid and Dwolla
   
 **Run the project**
