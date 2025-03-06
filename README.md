@@ -72,10 +72,8 @@ Create a ```.env``` file and add:
 ```
   Enter the values with your actual respective account credentials, you can obtain them by signing up on Appwrite, Plaid and Dwolla
   
-**Run the project**
-    
-    ```sh
-    npm run dev
-    
-    
+**4.Run the project**
+```bash
+  npm run dev
+```  
   And open https://localhost:3000 in your browser
