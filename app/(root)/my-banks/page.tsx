@@ -4,8 +4,13 @@ import { getAccounts } from "@/lib/actions/bank.actions";
 import { getLoggedInUser } from "@/lib/actions/user.actions";
 import React from "react";
 
+export const dynamic = 'force-dynamic';
+
 const MyBanks = async () => {
   const loggedIn = await getLoggedInUser();
+
+  if (!loggedIn) return null;
+
   const accounts = await getAccounts({ userId: loggedIn.$id });
 
   return (
@@ -18,7 +23,7 @@ const MyBanks = async () => {
           <div className="flex flex-wrap gap-6">
             {accounts &&
               accounts.data.map((a: Account) => (
-                <BankCard key={accounts.id} account={a} userName={loggedIn.firstName} />
+                <BankCard key={a.id} account={a} userName={loggedIn.firstName} />
               ))}
           </div>
         </div>

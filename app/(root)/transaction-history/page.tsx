@@ -6,6 +6,8 @@ import { getLoggedInUser } from "@/lib/actions/user.actions";
 import { formatAmount } from "@/lib/utils";
 import React from "react";
 
+export const dynamic = 'force-dynamic';
+
 const TransactionHistory = async (props: SearchParamProps) => {
   const searchParams = await props.searchParams;
   const id = searchParams.id;
@@ -13,6 +15,8 @@ const TransactionHistory = async (props: SearchParamProps) => {
 
   const currentPage = Number(page as string) || 1;
   const loggedIn = await getLoggedInUser();
+
+  if (!loggedIn) return null;
 
   const accounts = await getAccounts({ userId: loggedIn.$id });
 

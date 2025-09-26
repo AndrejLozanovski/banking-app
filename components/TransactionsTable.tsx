@@ -61,7 +61,7 @@ const TransactionsTable = ({ transactions }: TransactionTableProps) => {
 
           return (
             <TableRow
-              key={t.id}
+              key={t.$id}
               className={`${
                 isDebit || amount[0] === "-" ? "bg-[#fff1ee]" : "bg-[#F6FEF9]"
               } !hover:bg-none !border-b-DEFAULT`}
